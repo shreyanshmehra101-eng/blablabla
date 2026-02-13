@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For Luvee ❤️</title>
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    font-family: 'Georgia', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Floating Hearts */
+.heart {
+    position: absolute;
+    color: #ff4d6d;
+    font-size: 20px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh); opacity:1;}
+    100% { transform: translateY(-10vh); opacity:0;}
+}
+
+/* Teddy Start */
+.teddy {
+    font-size: 100px;
+    cursor: pointer;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%,100% { transform: translateY(0);}
+    50% { transform: translateY(-15px);}
+}
+
+.options {
+    display: none;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 25px;
+    border: none;
+    background-color: #ff4d6d;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #c9184a;
+    transform: scale(1.1);
+}
+
+/* Old Paper */
+.paper {
+    display: none;
+    width: 400px;
+    max-height: 70vh;
+    overflow-y: auto;
+    background: #f5e6c8;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    animation: openPaper 2s ease forwards;
+    transform-origin: top;
+}
+
+@keyframes openPaper {
+    from { transform: scaleY(0); opacity:0;}
+    to { transform: scaleY(1); opacity:1;}
+}
+
+.paper p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #3e2723;
+}
+
+.result {
+    display: none;
+    font-size: 80px;
+    margin-top: 20px;
+}
+
+.kiss {
+    animation: zoomIn 3s forwards;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.1); }
+    to { transform: scale(2); }
+}
+</style>
+</head>
+<body>
+
+<div id="start">
+    <div class="teddy" onclick="showOptions()">🧸</div>
+    <h2>Tap the teddy… he brought something for you 💌</h2>
+    <div class="options" id="options">
+        <button onclick="openLetter()">YES YES 💖</button>
+        <button onclick="openLetter()">YES YES 😌</button>
+    </div>
+</div>
+
+<div class="paper" id="letter">
+<p>
+Hi Luvee,<br><br>
+
+I hope teri boards ki prep mast chal rahi hogi, aur Instagram deactivate karke tu proper locked-in mode me hogi 😭 proud of you fr.<br><br>
+
+Honestly, jabse hamari wapas se dosti hui hai na, last 5 months kaafi special lage hain mujhe. Main normally itna filmy type feel nahi karta, but with you it's been different. Aur haan, shayad maine pehle bhi thoda hint diya hoga… boring right? 😭<br><br>
+
+But since aaj Valentine's Day hai, I just wanted to say it properly, I like you. Haan, genuinely. No dramatic build up, bas simple truth. I'm not putting any pressure on you at all. Bas socha ki agar 1% chance bhi ho, toh shot lena chahiye (Virat fan hu, risk lena padta hai 😌).<br><br>
+
+IT COULD NOT BE A BETTER DAY FOR ME TO CONFESS MY FEELINGS.<br><br>
+
+Baaki decision obviously tera hai. Aur jo bhi ho, I really hope hamari friendship waise hi rahe, kyunki that matters a lot to me.<br><br>
+
+Take your time.<br>
+And yeah… I really, really like you.<br><br>
+
+- Your Maharaja Mac Burger<br>
+Shreyansh
+</p>
+
+<div>
+    <button onclick="yesChoice()">YES😍</button>
+    <button onclick="noChoice()">NO 💔🥀</button>
+</div>
+</div>
+
+<div class="result" id="result"></div>
+
+<script>
+function showOptions(){
+    document.getElementById("options").style.display = "block";
+}
+
+function openLetter(){
+    document.getElementById("start").style.display = "none";
+    document.getElementById("letter").style.display = "block";
+}
+
+function yesChoice(){
+    document.getElementById("letter").style.display = "none";
+    let r = document.getElementById("result");
+    r.style.display = "block";
+    r.innerHTML = "🧸😘";
+    r.classList.add("kiss");
+}
+
+function noChoice(){
+    document.getElementById("letter").style.display = "none";
+    let r = document.getElementById("result");
+    r.style.display = "block";
+    r.innerHTML = "🧸😢💔";
+}
+
+/* Floating hearts */
+for(let i=0;i<25;i++){
+    let heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="❤️";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.animationDuration=(3+Math.random()*3)+"s";
+    document.body.appendChild(heart);
+}
+</script>
+
+</body>
+</html>
